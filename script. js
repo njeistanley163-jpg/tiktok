@@ -1,0 +1,48 @@
+// Videos (tu peux changer les liens plus tard)
+const videos = [
+    { src: "https://assets.mixkit.co/videos/preview/12345/12345-large.mp4", user: "@axis_official", caption: "Live avec 700 followers ! 🔥 #Axis" },
+    { src: "https://assets.mixkit.co/videos/preview/23456/23456-large.mp4", user: "@petcare", caption: "Pet care business in Yaoundé 🐶" }
+];
+
+let currentUser = "Axis";
+
+function renderFeed() {
+    const feed = document.getElementById('feed');
+    feed.innerHTML = `<h2 style="color:#fe2c55;padding:20px;text-align:center;">For You • ${currentUser}</h2>`;
+    
+    videos.forEach(v => {
+        const div = document.createElement('div');
+        div.className = 'video-wrapper';
+        div.innerHTML = `
+            <video src="${v.src}" loop muted></video>
+            <div class="video-overlay">
+                <div class="user">${v.user}</div>
+                <p>${v.caption}</p>
+            </div>
+            <div class="music-disc"></div>
+            <div class="actions">
+                <button onclick="like(this)"><i class="fas fa-heart"></i><br>12K</button>
+                <button onclick="comment(this)"><i class="fas fa-comment"></i><br>890</button>
+                <button onclick="share()"><i class="fas fa-share"></i><br>Share</button>
+            </div>
+        `;
+        feed.appendChild(div);
+    });
+}
+
+function like(btn) { btn.style.color = '#fe2c55'; alert('❤️ Liked!'); }
+function comment(btn) { const txt = prompt("Commentaire :"); if(txt) alert("Comment posted!"); }
+function share() { alert("Shared!"); }
+
+// Auth
+function showAuth() {
+    alert("Login successful (any info works) - Welcome " + currentUser);
+    renderFeed();
+}
+
+function showUpload() {
+    alert("Upload video (Demo)");
+}
+
+// Start
+window.onload = renderFeed;
