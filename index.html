@@ -1,0 +1,44 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <div class="logo">TikTok</div>
+            <div class="search"><input type="text" placeholder="Search"></div>
+            <div class="icons">
+                <i class="fas fa-plus" onclick="showUpload()"></i>
+                <i class="fas fa-bell"></i>
+                <i class="fas fa-user" onclick="showAuth()"></i>
+            </div>
+        </header>
+
+        <div class="main">
+            <div class="feed" id="feed"></div>
+        </div>
+
+        <nav class="bottom-nav">
+            <i class="fas fa-home"></i>
+            <i class="fas fa-compass"></i>
+            <i class="fas fa-plus-circle" onclick="showUpload()"></i>
+            <i class="fas fa-inbox"></i>
+            <i class="fas fa-user" onclick="showAuth()"></i>
+        </nav>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <div id="authScreen"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
